@@ -9,14 +9,14 @@ var expect = chai.expect;
 
 
 //pending tests
-describe('Pending component test 1', function() {
+xdescribe('Pending component test 1', function() {
   it ('should test component 1');
 });
 
-describe('Pending component test 2', function() {
+xdescribe('Pending component test 2', function() {
   it ('should test component 2');
 });
 
-describe('Pending component test 3', function() {
+xdescribe('Pending component test 3', function() {
   it ('should test component 3');
 });

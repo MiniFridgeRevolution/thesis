@@ -1,7 +1,7 @@
 var chai = require('chai');
 var expect = chai.expect;
-var stubs = require('./Stubs');
-var server = require('./server');
+// var stubs = require('./Stubs');
+// var server = require('./server');
 
 // describe('The test itself!', function() {
 //   it ('should test something simple', function() {
@@ -18,7 +18,7 @@ var waitForThen = function (test, cb) {
 };
 
 //pending tests
-describe('Node Server Request Listener Function', function() {
+xdescribe('Node Server Request Listener Function', function() {
   it('Should answer GET requests for /dashboard with a 200 status code', function() {
     // This is a fake server request. Normally, the server would provide this,
     // but we want to test our function's behavior totally independent of the server code
@@ -32,10 +32,10 @@ describe('Node Server Request Listener Function', function() {
   });
 });
 
-describe('Pending server test 2', function() {
+xdescribe('Pending server test 2', function() {
   it ('should test server 2');
 });
 
-describe('Pending server test 3', function() {
+xdescribe('Pending server test 3', function() {
   it ('should test server 3');
 });
