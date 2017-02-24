@@ -1,7 +1,6 @@
 import React from 'react'
-import ace from 'brace'
-import io from 'socket.io-client'
-// let socket = io();
+// import ace from 'brace'
+
 
 export default class Collaborate extends React.Component {
 	constructor(props) {
@@ -16,9 +15,11 @@ export default class Collaborate extends React.Component {
 		var applyingChanges = false;
     // editor.getSession().setMode("ace/mode/javascript");
     var username = prompt("what is your name?");
+
     socket.on('connect', function(){
     	console.log('connected');
     	socket.emit('adduser', username);
+
       socket.on('welcome', function(msg) {
         $('#result').append($('<p>').text(msg));
       });
@@ -63,6 +64,7 @@ export default class Collaborate extends React.Component {
         // console.log('submit-val', room_name, val);
         return false;
     });
+
     socket.on('submit-val', function(val) {
     	applyingChanges = true;
     	$('#result').append($('<p>').text(val));
@@ -71,10 +73,7 @@ export default class Collaborate extends React.Component {
     });
 		/**************************************/
 
-		/*********** video conference *********/
-    socket.on('newUser', function(data) {
-		  $('#numOfUsers').html(data);
-		});
+		// ********** video conference ********
 
 		var signalingChannel = socket;
 		var pc;
@@ -95,7 +94,9 @@ export default class Collaborate extends React.Component {
 		    // send any ice candidates to the other peer
 		    pc.onicecandidate = function (evt) {
 		      console.log('send ice candidates:', evt);
-		      signalingChannel.emit('sendCandidate', (JSON.stringify({ "candidate": evt.candidate })));
+
+            signalingChannel.emit('sendCandidate', room_name, (JSON.stringify({ "candidate": evt.candidate })));
+
 		    };
 
 		    // once remote stream arrives, show it in the remote video element
@@ -121,7 +122,7 @@ export default class Collaborate extends React.Component {
 		      function gotDescription(desc) {
 		          pc.setLocalDescription(desc);
 
-		          signalingChannel.emit('sendDescription', JSON.stringify({ "sdp": desc }));
+		          signalingChannel.emit('sendDescription', room_name, JSON.stringify({ "sdp": desc }));
 		      }
 		    });
 		}
@@ -152,7 +153,6 @@ export default class Collaborate extends React.Component {
 
 
 		$("#start-call").click(function() {
-
 		    start(true);
 		});
 

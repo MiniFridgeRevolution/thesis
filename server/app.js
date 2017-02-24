@@ -1,5 +1,6 @@
 var express = require('express');
 var app = module.exports = express();
+var path = require('path');
 
 app.use(express.static(__dirname + '/../public'));
 
