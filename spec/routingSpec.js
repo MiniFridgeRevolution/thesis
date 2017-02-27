@@ -1,16 +1,18 @@
 var chai = require('chai');
 var expect = chai.expect;
+var chaiHTTP = require('chai-http');
+chai.use(chaiHTTP);
+var server = require('./../server/app.js');
 
-xdescribe('The test itself!', function() {
-  it ('should test something simple', function() {
-    expect(1).to.equal(1);
+describe('basic routes', function() {
+  it ('should make a get request', function (done) {
+    chai.request(server)
+      .get('/user')
+      .end(function(err, result) {
+        expect(result.status).to.equal(200);
+        done();
+      });
   });
-});
-
-
-//pending tests
-xdescribe('Pending routing test 1', function() {
-  it ('should test routing 1');
 });
 
 xdescribe('Pending routing test 2', function() {

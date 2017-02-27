@@ -47,6 +47,15 @@
 <row name="password" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+<default>NULL</default></row>
+<row name="profileImage" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="description" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
@@ -69,11 +78,8 @@
 <datatype>VARCHAR(10)</datatype>
 <default>NULL</default><comment>open, closed, or claimed</comment>
 </row>
-<row name="title" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="deadline" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
+<datatype>DATETIME</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -126,11 +132,11 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="id_users" null="1" autoincrement="0">
+<row name="id_user" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Users" row="id" />
 </row>
-<row name="id_questions" null="1" autoincrement="0">
+<row name="id_question" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Questions" row="id" />
 </row>

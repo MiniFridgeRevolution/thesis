@@ -11,30 +11,12 @@ export default React.createClass({
     console.log('In Dashboard props',this.props);
   },
 
-  // contextTypes: {
-  //   router: React.PropTypes.object
-  // },
-
-  // componentDidMount: function() {
-  //   console.log('inside Dashboard', this.props);
-  // },
-
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   const userName = event.target.elements[0].value;
-  //   const repo = event.target.elements[1].value;
-  //   const path = `/repos/${userName}/${repo}`;
-  //   // console.log(path);
-  //   // browserHistory.push(path);
-  //   this.context.router.push(path); 
-  // },
-
   render() {
     return (
       <div className="container-fluid">
         <div className="row">
-          <LeftColumn />
-          <RightColumn questions={this.props.userData.questions} questionsClaimed={this.props.userData.questionsClaimed} addQuestion={this.props.addQuestion} />
+          <LeftColumn userCurrent={this.props.userData.user} />
+          <RightColumn userCurrent={this.props.userData.user} questions={this.props.userData.questions} questionsClaimed={this.props.userData.questionsClaimed} addQuestion={this.props.addQuestion} />
         </div>
       </div>
     )

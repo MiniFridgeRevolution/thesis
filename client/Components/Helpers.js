@@ -5,10 +5,16 @@ var Helpers = React.createClass({
   
   renderHelpers: function(key) {
     return ( 
-      <tr>
-        <td>{this.props.details.helpers[key]}</td>
-        <td><Link to="/collaborate">Accept</Link></td>
-      </tr>
+      
+      <div className="row">
+        <div className="col-sm-9 col-md-9">
+          {this.props.details.helpers[key]}
+        </div>
+        <div className="col-sm-8 col-md-3">
+          <Link to="/collaborate">Accept</Link>
+        </div>
+      </div>
+
     )
   },
   //pass down all helpers here and map it
@@ -28,12 +34,12 @@ var Helpers = React.createClass({
   },
   
   componentDidMount: function() {
-    console.log('In Helpers.js', this.props);
+    // console.log('In Helpers.js', this.props);
   },
 
   render: function() {
     return (
-      <div>
+      <div className="bg-success">
         { this.checkHelpers() } 
       </div>
     )

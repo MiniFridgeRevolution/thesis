@@ -23,8 +23,9 @@ export default React.createClass({
               <li><Link to="/graphs">View coding trends</Link></li>
               <li><Link to="/dashboard">My account</Link></li>
               <li><Link to="/collaborate">Collaborate</Link></li>
-              <li><a className="btn" href="#" role="button">Sign up</a> </li>
-              <li><a className="btn" href="#" role="button">Log in</a></li>
+              <li><Link to="/login">Log in</Link> </li>
+              <li><Link to="/signup">Sign up</Link></li>
+              <li><Link to="/logout">Log out</Link></li>
             </ul>
           </div>
         </div>

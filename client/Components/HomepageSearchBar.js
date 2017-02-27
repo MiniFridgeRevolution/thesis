@@ -9,7 +9,7 @@ export default React.createClass({
             <div className="col-md-1"/>
             <div className="col-md-10 main">
               <h1>Lend a Hacking Hand</h1>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+              <p>Help those who are in hacking needs</p>
               <div className="input-group">
                 <input type="text" className="form-control" placeholder="Search for questions to answer..."/>
                 <span className="input-group-btn">

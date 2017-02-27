@@ -7,7 +7,7 @@ export default React.createClass({
       
         <div className="row placeholders">
           <div className="placeholder">
-            <img data-src="holder.js/200x200/auto/sky" className="img-responsive" alt="Generic placeholder thumbnail"/>
+            <img src={this.props.userCurrent.profileImage} width="200px"/>
           </div>
         </div>
         

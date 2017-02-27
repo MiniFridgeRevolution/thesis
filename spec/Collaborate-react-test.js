@@ -11,8 +11,15 @@ describe("Collaborate component", function() {
     expect(shallow(<Collaborate />).find('video').length).to.equal(2);
   });
 
-  it("contains a single button", function() {
-    expect(shallow(<Collaborate />).find('button').length).to.equal(1);
+
+  it("contains a Ace editor", function() {
+		const wrapper = shallow(<div id="editor" />);
+		expect(wrapper.is('#editor')).to.equal(true);
+
   });
 
+  it("contains a area for result", function() {
+		const wrapper = shallow(<div id="result" />);
+		expect(wrapper.is('#result')).to.equal(true);
+  });
 });

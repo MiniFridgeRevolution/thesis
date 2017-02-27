@@ -1,7 +1,9 @@
 import React from 'react'
+
 import ace from 'brace'
 import 'brace/mode/javascript'
 import 'brace/theme/github'
+import axios from 'axios'
 
 let socket = io.connect();
 let pc;
@@ -12,6 +14,7 @@ let pc;
 		};
 
 let localStream;
+
 
 export default class Collaborate extends React.Component {
 	constructor(props) {
@@ -43,34 +46,37 @@ export default class Collaborate extends React.Component {
 		this.handleCandidate = this.handleCandidate.bind(this);
 	}
 	componentWillMount() {
-		var username = prompt("what is your name?");
-		this.setState({username: username});
-		console.log(username);
+
+		// var username = prompt("what is your name?");
+		console.log('COLLABORATE Username',this.props.userData.user.name);
+		this.setState({username: this.props.userData.user.name});
+		// console.log(username);
 	}
-	componentDidMount() {		
+	componentDidMount() {
+		var context = this;		
 		/*********** live coding *********/
 		this.editor = ace.edit(this.refs.root);
-    this.editor.getSession().setMode("ace/mode/javascript");
-    this.editor.setTheme("ace/theme/github");
+	    this.editor.getSession().setMode("ace/mode/javascript");
+	    this.editor.setTheme("ace/theme/github");
 
-    socket.on('connect', function(){
-    	console.log('connected');
-    });
-    // socket.on('disconnect', this.exitRoom);
-    socket.on('room-exists', function(msg) {
-      alert(msg);
-    });
-    // changes in editing board
-    this.editor.on('change', this.handleEditorContentChange);
-    socket.on('editor-content-changes', this.updateEditorContent);
-    // clear editor content
-    socket.on('clear-editor', this.ResetEditor);
-    // 'run code'
-    socket.on('submit-val', this.updateResult);
-    // handle info
-    socket.on('info', this.handleInfo);
-    // exit room
-    socket.on('exit_room', this.handleExitRoom);
+	    socket.on('connect', function(){
+	    	console.log(context.state.username, ' connected');
+	    });
+	    socket.on('disconnect', this.exitRoom);
+	    socket.on('room-exists', function(msg) {
+	      alert(msg);
+	    });
+	    // changes in editing board
+	    this.editor.on('change', this.handleEditorContentChange);
+	    socket.on('editor-content-changes', this.updateEditorContent);
+	    // clear editor content
+	    socket.on('clear-editor', this.ResetEditor);
+	    // 'run code'
+	    socket.on('submit-val', this.updateResult);
+	    // handle info
+	    socket.on('info', this.handleInfo);
+	    // exit room
+	    socket.on('exit_room', this.handleExitRoom);
 		/**************************************/
 
 		/*********** video conference *********/
@@ -202,6 +208,7 @@ export default class Collaborate extends React.Component {
 		}
 		var candidate = (JSON.parse(evt)).candidate;
 		pc.addIceCandidate(new RTCIceCandidate(candidate));
+
 	}
 	/************************************/	
   render() {

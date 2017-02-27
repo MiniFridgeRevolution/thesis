@@ -9,6 +9,7 @@ var PostQuestion = React.createClass({
 
      //1. take data from form
      var questionData = {
+      userId: this.props.userCurrent.id,
       title: this.refs.questionTitle.value,
       question: this.refs.questionBody.value,
       status: 'open',
@@ -30,6 +31,8 @@ var PostQuestion = React.createClass({
   render: function() {
     // console.log('ShowForm is', this.props.showForm);
     // console.log('hideQuestionForm', this.props.hideQuestionForm);
+    // console.log('Check userCurrent ID', this.props.userCurrent.id);
+    
     if (this.props.showForm === true) {
       return (
         
