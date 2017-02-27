@@ -14,13 +14,13 @@ export default React.createClass({
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link to="/" className="navbar-brand logo">Hackeroo!</Link>
+            <Link to="/" className="navbar-brand logo">Hackeroos</Link>
           </div>
           
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav navbar-right">
               <li><Link to="/about">How it works</Link></li>
-              <li><a href="#">View coding trends</a></li>
+              <li><Link to="/graphs">View coding trends</Link></li>
               <li><Link to="/dashboard">My account</Link></li>
               <li><Link to="/collaborate">Collaborate</Link></li>
               <li><a className="btn" href="#" role="button">Sign up</a> </li>

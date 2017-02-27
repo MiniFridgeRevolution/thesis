@@ -4,7 +4,7 @@ import QuestionItem from './QuestionItem'
 var OpenQuestions = React.createClass({
   
   renderQuestion: function(key) {
-    console.log(this.props.questions);
+    // console.log(this.props.questions);
     return ( <QuestionItem key={key} index={key} details={this.props.questions[key]}/> )
   },
   componentDidMount: function() {

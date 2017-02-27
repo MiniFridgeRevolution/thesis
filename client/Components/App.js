@@ -1,5 +1,6 @@
 import React from 'react'
 import { IndexLink } from 'react-router'
+import axios from 'axios'
 import NavLink from './NavLink'
 import Home from './Home'
 import HomepageSearchBar from './HomepageSearchBar'
@@ -57,15 +58,47 @@ export default class App extends React.Component {
     }
   }
 
+  componentWillMount() {
+    //we can't call 'this' within axios, so need to hold it in 'context'
+    var context = this;
+    //do ajax call
+    axios.get('/question')
+    .then(function(response) {
+      console.log('Real response from DB', response.data);
+      //response.data object is in an array, so need to get element 0
+      context.setState({questions: response.data});      
+    })
+    .catch(function(err) {
+      console.log(err);
+    })
+  }
 
   addQuestion(questionData) {
-    console.log('addQuestion function is called', questionData);
-    console.log(this.state);
+    // console.log('The dummy data', this.state.questions);
+    // console.log('addQuestion questionData object', questionData);
     var timeStamp = (new Date()).getTime();
     this.state.questions['id' + timeStamp] = questionData;
-    this.setState({
-      questions: this.state.questions
+    console.log('Dummy data', this.state.questions);
+    //Setting state is now done in componentDidMount(), using data from database
+      // this.setState({
+      //   questions: this.state.questions
+      // })
+
+    //write to database
+    //this is where ORM shines, make sure the object that I send here matches
+    //the schema in questionsModel.js
+    //check what this.state.questions contains, then map it to the schema
+    
+    axios.post('/question', questionData)
+    .then(function(res) {
+      console.log('Success writing question to database', res);
+
     })
+    .catch(function(err) {
+      if (err) {
+        console.log('Fail to write question to database')
+      }
+    });  
   }
 
 
@@ -84,12 +117,6 @@ export default class App extends React.Component {
     
         {childrenWithProps}
 
-        <div className="pre">
-          <h3>App.js state</h3>
-          <pre>
-            {JSON.stringify(this.state, null, 2)}
-          </pre>
-        </div>
       </div>
     )
   }

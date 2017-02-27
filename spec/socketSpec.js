@@ -47,7 +47,7 @@ describe('socket', function() {
       client1.on('welcome', function(msg) {
         expect(msg).to.equal('a new user has joined the room');
         done();
-      })
+      })      
 
     });
   });
