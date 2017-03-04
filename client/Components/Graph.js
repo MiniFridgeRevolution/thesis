@@ -11,6 +11,7 @@ export default class Collaborate extends React.Component {
       .then(function(response){
       $('#chart-img-container').append(response.data);
     });
+  }
 
   render() {
     return (
