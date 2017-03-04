@@ -68,8 +68,6 @@ app.get('/auth/github', passport.authenticate('github', function(err, user, info
 // GitHub will call this URL
 app.get('/auth/github/callback', githubAuth.failureRedirect, githubAuth.successCallback);
 
-
-
 app.get('/loggingout', function(req, res){
   console.log('logging out');
   req.logout();
@@ -95,6 +93,11 @@ app.get('/session',  githubAuth.authenticate);
 app.get('/graph2/', function(req, res) {
   res.sendFile(path.resolve(__dirname + '/../server/twitter/charts.html'));
 });
+
+app.get('/search', function(req, res) {
+  console.log("RrRRRRRRRRR: ", req.query.term);
+  questionsCtrl.retrieve(req, res);
+})
 
 app.get('/*', githubAuth.checkUser, function(req, res) {
   res.sendFile(path.resolve(__dirname + '/../public/index.html'));

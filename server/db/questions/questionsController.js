@@ -55,6 +55,27 @@ const controller = {
     });
   },
 
+  searchQuestions: function(req, res, next) {
+
+    //retrieve all questions
+    db.query('SELECT question, title FROM questions')
+    .then(function(questions) {
+      var promises = questions.map(function(question) {
+        return {
+          'title':question.title,
+          'question':question.question
+        }
+      });
+      Promise.all(promises).then(function() {
+        res.send(promises);
+      })
+    })
+    .catch(function(err) {
+      console.log(' X X X X error retrieving question');
+      return res.sendStatus(500);
+    });
+  },
+
   retrieveForOneUser: function(req, res, next) {
     
     var currentUserId = req.query.userId;
