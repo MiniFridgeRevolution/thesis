@@ -11,11 +11,6 @@ export default class Collaborate extends React.Component {
       .then(function(response){
       $('#chart-img-container').append(response.data);
     });
-    axios.get('/search?term=hello')
-      .then(function(response){
-      console.log("searchResp: ", response.data[0].title);
-    });
-  }
 
   render() {
     return (
