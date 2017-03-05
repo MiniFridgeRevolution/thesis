@@ -4,7 +4,7 @@ import axios from 'axios'
 export default React.createClass({
 
   clickHandler(){
-    axios.get('/search?term=hello')
+    axios.get('/search?term=' + document.getElementsByName("textbox1")[0].value)
       .then(function(response){
       console.log("searchResp: ", response.data[0].title);
     });
@@ -20,7 +20,7 @@ export default React.createClass({
               <h1>Lend a Hacking Hand</h1>
               <p>Help those who are in hacking needs</p>
               <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search for questions to answer..."/>
+                <input type="text" name="textbox1" className="form-control" placeholder="Search for questions to answer..."/>
                 <span className="input-group-btn">
                   <button className="btn btn-default" type="button" onClick={this.clickHandler}>Go!</button>
                 </span>
