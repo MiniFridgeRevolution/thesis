@@ -42,29 +42,29 @@ const controller = {
     console.log('XXX calling claimController retrieve with userId:', req.query.userId);
     var currentUserId = req.query.userId;
 
-    // // Question.belongsTo(User, {foreignKey: 'userId'});
-    // Question.hasMany(Claim, {foreignKey: 'id_question'});
-    
-    // // Claim.belongsTo(Question, {foreignKey: 'id_question'});
-    // Claim.belongsTo(User, {foreignKey: 'id_helper'});
-    // // User.hasMany(Claim, {foreignKey: 'id_helper'});
+/*
+    // Claim.belongsTo(Question, {foreignKey: 'id_question'});
+    Claim.belongsTo(User, {foreignKey: 'id_helper'});
+    // User.hasMany(Claim, {foreignKey: 'id_helper'});
 
-    // Question.findAll({ where: {userId: currentUserId}, status: 'claimed', 
-    //   // include: [{model: User, where: {id: 'id_helper'}, 
-    //   //   include: [{model: Question}]
-    //   // }]
-    //   include: [
-    //     {
-    //       model: Claim, 
-    //       include: [
-    //         User
-    //       ]  
-    //     }
-    //   ]
+    Question.findAll({ where: {
+      $and: [{userId: currentUserId}, {status: 'claimed'}]
+      }, 
+      // include: [{model: User, where: {id: 'id_helper'}, 
+      //   include: [{model: Question}]
+      // }]
+      include: [
+        {
+          model: Claim, 
+          include: [
+            User
+          ]  
+        }
+      ]
 
-    //   // include: [{model: Question}],
-    //   // include: [{model: User}],
-    // })
+*/
+
+
     db.query('SELECT id_helper, id_question, id_learner, questions.title, questions.question, questions.status, questions.deadline, questions."createdAt", helper.name FROM claims\
       INNER JOIN questions ON questions.id = claims.id_question\
       INNER JOIN users AS helper ON helper.id = id_helper\

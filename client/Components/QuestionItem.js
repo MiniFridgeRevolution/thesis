@@ -17,16 +17,16 @@ var QuestionItem = React.createClass({
     }   
   },
 
-  isClaimedBySelf: function() {
-    if (this.props.details.helperId && this.props.userCurrent.id) {
-      console.log('helperId', this.props.details.helperId);
-      console.log('current user id', this.props.userCurrent.id);
+  // isClaimedBySelf: function() {
+  //   if (this.props.details.helperId && this.props.userCurrent.id) {
+  //     console.log('helperId', this.props.details.helperId);
+  //     console.log('current user id', this.props.userCurrent.id);
       
-      if (this.props.details.helperId === this.props.userCurrent.id) {
-        return (<span><Link to="/">You claimed this question</Link></span>);
-      }
-    }
-  },
+  //     if (this.props.details.helperId === this.props.userCurrent.id) {
+  //       return (<span><Link to="/">You claimed this question</Link></span>);
+  //     }
+  //   }
+  // },
 
   isAuthenticated: function() {
     // Show Claim button if user is authenticated. 
