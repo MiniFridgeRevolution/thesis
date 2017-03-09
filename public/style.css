@@ -3,8 +3,7 @@
 }
 
 .logo {
-  font-family: 'Lobster', cursive;
-  font-size: 32px;
+  font-size: 52px;
 }
 
 #result {
@@ -24,5 +23,21 @@ video {
 }
 
 .jumbotron {
-  background-color: #ccc;
+  
+}
+
+.heroImage {
+  background-image: url('/images/hack.jpg');
+  background-size: cover;
+  display: block;
+  height: 400px;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.heroText {
+  width: 70%;
+  position: absolute;
+  top: 100px;
+  left: 10%;
 }

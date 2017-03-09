@@ -22,7 +22,7 @@ export default React.createClass({
     //{ Object.keys(this.props.allUsers).map(this.renderProfiles) }
     return (
       <div>
-        <h3>Find Helpers</h3>
+        <h2>Find Hackers</h2>
         <div className="panel panel-default">
           <div className="panel-body">
             <div className="row placeholders">

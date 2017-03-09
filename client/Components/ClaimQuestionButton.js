@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 var ClaimQuestionButton = React.createClass({
 
@@ -9,13 +9,13 @@ var ClaimQuestionButton = React.createClass({
   checkStatus: function() {
     //check question status
     if (this.props.details.status === 'open' ) {
-      return(
-        <form>
-          <button onClick={() => this.props.claimQuestion(this.props.userCurrent.id, this.props.details.userId, this.props.details.id)} className="btn btn-default" role="button">Claim</button>
-        </form>
-      )
+      return (
+        
+          <button onClick={() => this.props.claimQuestion(this.props.userCurrent.id, this.props.details.userId, this.props.details.id)} className="btn btn-success btn-fill" role="button">I can help</button>
+        
+      );
     } else {
-      return(<div/>)
+      return (<div/>);
     }
   },
 
@@ -23,11 +23,11 @@ var ClaimQuestionButton = React.createClass({
     // console.log('showButton is', this.props.showButton);
     // console.log('showQuestionForm', this.props.showQuestionForm);
     return (
-      <div>
+      <span>
         { this.checkStatus() } 
-      </div>
-    )
+      </span>
+    );
   }
 });
 
-export default ClaimQuestionButton
+export default ClaimQuestionButton;

@@ -17,16 +17,13 @@ var Helpers = React.createClass({
     var helperProfileLink = '/profile/' + helperObject.helperId;
 
     return ( 
-      <div className="row">
-        <div className="col-sm-9 col-md-9">
-           <Link to={ helperProfileLink }>{ helperObject.helperName }</Link>
-        </div>
-        <div className="col-sm-8 col-md-3">
+      <span>
+          <p><Link to={ helperProfileLink }>{ helperObject.helperName }</Link> wants to help you. &nbsp;
           <HelperAcceptButton 
               details={this.props.details} 
               acceptHelper={this.props.acceptHelper} />
-        </div>
-      </div>
+          </p>
+      </span>
 
     );
   },
@@ -38,9 +35,9 @@ var Helpers = React.createClass({
       var helpersArray = this.props.details.helpers;
       // console.log('helpersArray', helpersArray);
       return (
-        <div>
+        <span>
           { helpersArray.map(this.renderHelpers) }
-        </div>
+        </span>
       );
     } else {
       return (<div/>);
@@ -49,9 +46,9 @@ var Helpers = React.createClass({
 
   render: function() {
     return (
-      <div className="bg-success">
+      <span>
         { this.checkHelpers() } 
-      </div>
+      </span>
     );
   }
 });

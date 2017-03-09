@@ -35,9 +35,9 @@ var OpenQuestions = React.createClass({
 
   checkIfInDashboard: function() {
     if (this.props.dashboard) {
-      return (<h3>My Open Questions</h3>);
+      return (<h2>My Open Questions</h2>);
     } else {
-      return (<h3>Open Questions</h3>);
+      return (<p></p>);
     }
   },
 
@@ -46,10 +46,9 @@ var OpenQuestions = React.createClass({
       <div>
         
         { this.checkIfInDashboard() }
-        <div className="panel panel-default">
-          <div className="panel-body">
+        <div>
             { Object.keys(this.props.questions).map(this.renderQuestion) }
-          </div>
+          
         </div>
 
 

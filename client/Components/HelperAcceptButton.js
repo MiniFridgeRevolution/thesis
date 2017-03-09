@@ -23,8 +23,8 @@ var HelperAcceptButton = React.createClass({
     // console.log('showButton is', this.props.showButton);
     // console.log('showQuestionForm', this.props.showQuestionForm);
     return (
-      <div>
-        <form>
+      <span>
+        
           <button 
             onClick={() => 
               this.props.acceptHelper(
@@ -32,10 +32,10 @@ var HelperAcceptButton = React.createClass({
                 this.props.details.helperId, 
                 this.props.details.id
               )
-            } className="btn btn-default" role="button">Accept
+            } className="btn btn-success btn-fill" role="button">Accept
             </button>
-        </form>
-      </div>
+        
+      </span>
     );
   }
 });

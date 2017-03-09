@@ -64,7 +64,7 @@ var PostQuestion = React.createClass({
                 <textarea ref="questionBody" className="form-control" rows="5" required></textarea>
               </div>
 
-              <p><button className="btn btn-primary" type="submit" id="submit">Post</button> &nbsp;
+              <p><button className="btn btn-primary btn-fill" type="submit" id="submit">Post</button> &nbsp;
                  <a onClick={this.props.hideQuestionForm} className="btn btn-default" href="#" role="button">Cancel</a>
               </p>
 

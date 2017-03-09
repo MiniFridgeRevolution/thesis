@@ -42,7 +42,7 @@ var QuestionItem = React.createClass({
         );
       // if current user has claimed the question
       } else if (!!this.props.userCurrent && this.props.details.helperId === this.props.userCurrent.id) {
-        return (<div><Link>You have claimed this question</Link></div>);
+        return (<span><Link>You have claimed this question</Link></span>);
       }
     }
   },
@@ -52,26 +52,21 @@ var QuestionItem = React.createClass({
   render: function() {
     return (
       <div>
-        <table className="table table-striped">
-          <tbody>
-            <tr>
-              <td><h4><a href="">{this.props.details.title}</a></h4></td>
-            </tr>
-            <tr>
-              <td><p>{this.props.details.question}</p></td>
-            </tr>
-          </tbody>
-        </table>  
-        <div className="row isClaimed">
-          <div className="col-sm-9 col-md-9">
-            {this.isAuthenticated()}
+        
+        <div className="panel panel-default">
+          <div className="panel-body">
+            <h5>{this.props.details.title}</h5>
+            <p>{this.props.details.question}</p>
           </div>
-          <div className="col-sm-8 col-md-3">
-            {this.isClaimed()}
+          <div className="panel-footer">
+            <span>{this.isClaimed()} &nbsp; &nbsp; {this.isAuthenticated()}</span>
+            <Helpers details={this.props.details}
+                   acceptHelper={this.props.acceptHelper} />
           </div>
+          
+          
+
         </div>
-        <Helpers details={this.props.details}
-                 acceptHelper={this.props.acceptHelper} />
 
       </div>
     );

@@ -26,12 +26,10 @@ var ClaimedQuestions = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>Claimed Questions</h3>
-        <div className="panel panel-default">
-          <div className="panel-body">
+        <h2>Claimed Questions</h2>
+          <div>
             { Object.keys(this.props.questionsClaimed).map(this.renderQuestion) }
           </div>
-        </div>
       </div>
     );
   }
