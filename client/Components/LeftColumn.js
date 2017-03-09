@@ -16,7 +16,7 @@ export default React.createClass({
           <table className="table">
             <tbody>
               <tr>
-                <td>Overall</td>
+                <td><p>Overall Rating</p></td>
                 <td>
                   <ReactStars
                     
@@ -30,7 +30,7 @@ export default React.createClass({
                 <td>&nbsp;</td>
               </tr>
               <tr>
-                <td>Knowledge</td>
+                <td><p>Knowledge</p></td>
                 <td>
                   <ReactStars
                     
@@ -40,7 +40,7 @@ export default React.createClass({
                   </td>
               </tr>
               <tr>
-                <td>Helpfulness</td>
+                <td><p>Helpfulness</p></td>
                 <td>
                   <ReactStars
                     
@@ -50,7 +50,7 @@ export default React.createClass({
                 </td>
               </tr>
               <tr>
-                <td>Overall Experience</td>
+                <td><p>Overall Experience</p></td>
                 <td>
                   <ReactStars
                     
