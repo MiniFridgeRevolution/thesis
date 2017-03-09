@@ -17,22 +17,11 @@ var QuestionItem = React.createClass({
     }   
   },
 
-  // isClaimedBySelf: function() {
-  //   if (this.props.details.helperId && this.props.userCurrent.id) {
-  //     console.log('helperId', this.props.details.helperId);
-  //     console.log('current user id', this.props.userCurrent.id);
-      
-  //     if (this.props.details.helperId === this.props.userCurrent.id) {
-  //       return (<span><Link to="/">You claimed this question</Link></span>);
-  //     }
-  //   }
-  // },
-
   isAuthenticated: function() {
     // Show Claim button if user is authenticated. 
     if (!!this.props.userCurrent) {
     // But Hide Claim button if the question also belong to current user or user has claimed the question
-      if (this.props.details.helperId !== this.props.userCurrent.id && 
+      if (this.props.userCurrent.id !== undefined && this.props.details.helperId !== this.props.userCurrent.id && 
           this.props.details.userId !== this.props.userCurrent.id) {
         return (
           <ClaimQuestionButton 
