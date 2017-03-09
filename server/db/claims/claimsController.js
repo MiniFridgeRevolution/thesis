@@ -81,7 +81,7 @@ const controller = {
           'deadline': '',
           'createdAt': questions[0].dataValues.createdAt,
           'learnerId': questions[0].dataValues.id_learner,
-          
+          'helperId': questions[0].dataValues.id_helper,
           //make helpers an array of helpers objects
           'helpers': [{
             helperName: questions[0].dataValues.name,
